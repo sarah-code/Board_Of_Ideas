@@ -1,2 +1,2 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_board_of_ideas,board.of.ideas,model_board_of_ideas,base.group_user,1,1,1,1
+acr_board_of_ideas,board.of.ideas,model_board_of_ideas,base.group_user,1,1,1,1

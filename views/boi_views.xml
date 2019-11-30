@@ -1,16 +1,19 @@
 <odoo>
-  <data>
+
     <record id="board_of_ideas_action" model="ir.actions.act_window">
-      <field name="name">board_of_ideas_tree_action</field>
+      <field name="name">Board of Ideas</field>
       <field name="res_model">board.of.ideas</field>
+  
       <field name="view_mode">tree,form</field>
 
     </record>
+    <menuitem name="The Board of Ideas" id="boi_base_menu"/>
+    <menuitem name="Ideas" id="boi_menu" parent="boi_base_menu" action="board_of_ideas_action"/>
 
 
     <record id="board_of_ideas_tree" model="ir.ui.view">
-      <field name="name">board_of_ideas_tree_view</field>
-      <field name="res_model">board.of.ideas</field>
+      <field name="name">Board of Ideas list</field>
+      <field name="model">board.of.ideas</field>
       <field name="arch" type="xml">
         <tree>
           <field name="date" />
@@ -24,5 +27,6 @@
         </tree>
       </field>
     </record>
-  </data>   
+
+
 </odoo>

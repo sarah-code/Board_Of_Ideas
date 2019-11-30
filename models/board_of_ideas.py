@@ -13,6 +13,6 @@ class board_of_ideas(models.Model):
     owner = fields.Many2one(string="Owner", comodel_name="res.partner")
     resp_date = fields.Date(string="Response date")
     resp = fields.Text(string="Response")
-    state = fields.Selection(string="Status", selection="[('draft','Draft'),('proposed','Proposed'),('onit','Working on'),('implemented','Implemented'),('rejected','Rejected')],")
-
+    state = fields.Selection(string="Status", selection=[('draft','Draft'),('proposed','Proposed'),('onit','Working on'),('implemented','Implemented'),('rejected','Rejected')], default="draft")
+    int_notes = fields.Html(string="Internal Notes")
 
