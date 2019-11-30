@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-from . import board_of_ideas_logic
+from . import board_of_ideas

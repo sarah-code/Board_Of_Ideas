@@ -1,0 +1,28 @@
+<odoo>
+  <data>
+    <record id="board_of_ideas_action" model="ir.actions.act_window">
+      <field name="name">board_of_ideas_tree_action</field>
+      <field name="res_model">board.of.ideas</field>
+      <field name="view_mode">tree,form</field>
+
+    </record>
+
+
+    <record id="board_of_ideas_tree" model="ir.ui.view">
+      <field name="name">board_of_ideas_tree_view</field>
+      <field name="res_model">board.of.ideas</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="date" />
+          <field name="idea" />
+          <field name="dep" />
+          <field name="login" />
+          <field name="resp_date" />
+          <field name="owner" />
+          <field name="resp" />
+          <field name="state" />
+        </tree>
+      </field>
+    </record>
+  </data>   
+</odoo>
