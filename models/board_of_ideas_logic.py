@@ -9,7 +9,8 @@ class board_of_ideas(models.Model):
     idea = fields.Text(string="Idea/Area of Improvement")
     dep = fields.Text(string="department")
     login = fields.Many2one(string="Login", comodel_name="res.partner")
-    acts = fields.Text(string="Definition of actions")
-    owner = fields.Many2one(string="Owner")
-    state = fields.Selection(
+    resp = fields.Text(string="Response")
+    owner = fields.Many2one(string="Owner", comodel_name="res.partner")
+    resp_date = fields.Date(string="Response date")
+    state = fields.Selection(string="Status", selection="[('draft','Draft'),('proposed','Proposed'),('onit','Working on'),('implemented','Implemented'),('rejected','Rejected')],"
     description = fields.Text()
