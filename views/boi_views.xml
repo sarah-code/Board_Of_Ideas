@@ -16,6 +16,7 @@
       <field name="model">board.of.ideas</field>
       <field name="arch" type="xml">
         <tree>
+          <field name="title" />
           <field name="date" />
           <field name="idea" />
           <field name="dep" />
@@ -25,6 +26,39 @@
           <field name="resp" />
           <field name="state" />
         </tree>
+      </field>
+    </record>
+
+    <record id="board_of_ideas_form" model="ir.ui.view">
+      <field name="name">Board of Ideas Form</field>
+      <field name="model">board.of.ideas</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <h1>
+                <field name="title" />
+              </h1>
+            </group>
+            <group>
+              <group>
+                <field name="date" />
+                <field name="idea" />
+                <field name="dep" />
+                <field name="login" />
+              </group>
+              <group>
+                <field name="resp_date" />
+                <field name="owner" />
+                <field name="resp" />
+                <field name="state" />
+              </group>
+            </group>
+            <group>
+              <field name="int_notes" />
+            </group>
+          </sheet>
+        </form>
       </field>
     </record>
 
