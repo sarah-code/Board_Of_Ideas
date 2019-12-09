@@ -1,15 +1,15 @@
-from odoo import models, fields, api
+from odoo import models, fields, api, _
 from datetime import datetime
 
 class board_of_ideas(models.Model):
     _name = 'board.of.ideas'
 
-    title = fields.Text(string="Title")
+    title = fields.Text(string="Title", default=lambda self: _('New'))
 
     date = fields.Date(string="Date", default=datetime.today())
     idea = fields.Text(string="Idea/Area of Improvement")
     dep = fields.Text(string="department")
-    login = fields.Many2one(string="Login", comodel_name="res.partner", default="_get_user")
+    login = fields.Many2one(string="Login", comodel_name="res.partner", default=lambda self: self.env.user.id)
 
     owner = fields.Many2one(string="Owner", comodel_name="res.partner")
     resp_date = fields.Date(string="Response date")
@@ -23,11 +23,8 @@ class board_of_ideas(models.Model):
             title = "ISSUE-%s" % (rec.id)
             data.append((rec.id, title))
         return data
+    
 
-    def _get_user(self):
-        context = self._context
-        current_uid = context.get('uid')
-        user = self.env['res.users'].browse(current_uid)
-        return user
+
 
 
