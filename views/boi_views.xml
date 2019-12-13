@@ -45,7 +45,7 @@
                 <field name="date" />
                 <field name="idea" />
                 <field name="dep" />
-                <field name="login" />
+                <field name="login" readonly = "True"/>
               </group>
               <group>
                 <field name="resp_date" />

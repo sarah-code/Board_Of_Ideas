@@ -4,7 +4,7 @@ from datetime import datetime
 class board_of_ideas(models.Model):
     _name = 'board.of.ideas'
 
-    title = fields.Text(string="Title", default=lambda self: _('New'))
+    title = fields.Text(string="Title", readonly=1, default=lambda self: _('New'))
 
     date = fields.Date(string="Date", default=datetime.today())
     idea = fields.Text(string="Idea/Area of Improvement")
