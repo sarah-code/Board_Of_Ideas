@@ -1,0 +1,9 @@
+<odoo>
+    <record id="sequence_id" model="ir.sequence">
+        <field name="name">Issuecode</field>
+        <field name="code">code</field>
+        <field name="padding">3</field>
+        <field name="prefix">ISSUE-</field>
+        <field name="suffix"></field>
+    </record>
+</odoo>

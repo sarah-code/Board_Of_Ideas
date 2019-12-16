@@ -25,7 +25,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/boi_views.xml',
-        
+        'static/xml/sequence.xml',
     ],
     'installable': True,
     'application': True,

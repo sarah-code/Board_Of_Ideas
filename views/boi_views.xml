@@ -37,7 +37,7 @@
           <sheet>
             <group>
               <h1>
-                <field name="title" />
+                <field name="title" readonly="True"/>
               </h1>
             </group>
             <group>
@@ -49,7 +49,7 @@
               </group>
               <group>
                 <field name="resp_date" />
-                <field name="owner" />
+                <field name="owner" widget="many2many_tags"/>
                 <field name="resp" />
                 <field name="state" />
               </group>
