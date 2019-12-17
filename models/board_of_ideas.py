@@ -8,7 +8,7 @@ class board_of_ideas(models.Model):
 
     date = fields.Date(string="Date", default=datetime.today())
     idea = fields.Text(string="Idea/Area of Improvement")
-    dep = fields.Text(string="department")
+    dep = fields.Text(string="Department")
     login = fields.Many2one(string="Login", comodel_name="res.partner", store="True", default=lambda self: self.env.user.id)
 
     owner = fields.Many2many(string="Owner", comodel_name="res.partner")
