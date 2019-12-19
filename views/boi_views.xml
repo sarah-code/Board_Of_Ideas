@@ -17,6 +17,7 @@
       <field name="arch" type="xml">
         <tree>
           <field name="title" />
+          <field name="sev" />
           <field name="date" />
           <field name="idea" />
           <field name="dep" />
@@ -34,6 +35,10 @@
       <field name="model">board.of.ideas</field>
       <field name="arch" type="xml">
         <form>
+          <header>
+             <field name="state" widget="statusbar"
+            statusbar_visible="draft,proposed,onit" />
+          </header>
           <sheet>
             <group>
               <h1>
@@ -42,16 +47,17 @@
             </group>
             <group>
               <group>
+                <field name="login" readonly = "True"/>
+                <field name="sev" />
                 <field name="date" />
                 <field name="idea" />
                 <field name="dep" />
-                <field name="login" readonly = "True"/>
               </group>
               <group>
-                <field name="resp_date" />
+                <p>Legend: O = no severnity, !!!! = high severnity (needs attention within 3 months)</p>
                 <field name="owners" widget="many2many_tags"/>
+                <field name="resp_date" />               
                 <field name="resp" />
-                <field name="state" />
               </group>
             </group>
             <group>
