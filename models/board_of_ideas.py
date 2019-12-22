@@ -18,6 +18,7 @@ class board_of_ideas(models.Model):
     resp = fields.Text(string="Response")
     state = fields.Selection(string="Status", selection=[('draft','Draft'),('proposed','Proposed'),('onit','Working on'),('implemented','Implemented'),('rejected','Rejected')], default="draft")
     int_notes = fields.Html(string="Internal Notes")
+    desc = fields.Html(string="Detailed description")
 
     @api.onchange('sev')
     def severnity_warning(self):
@@ -41,8 +42,24 @@ class board_of_ideas(models.Model):
     def create(self, vals):
         if vals.get('title', _('New')) == _('New'):
             vals['title'] = self.env['ir.sequence'].next_by_code('code')
+            vals['state'] = 'proposed'
         res = super().create(vals)
         return res
 
+    def onit_progressbar(self):
+        for rec in self:
+            rec.write({
+                'state': 'onit'
+                })
 
+    def implement_progressbar(self):
+        for rec in self:
+            rec.write({
+                'state': 'implemented'
+                })
 
+    def reject_progressbar(self):
+        for rec in self:
+            rec.write({
+                'state': 'rejected'
+                })

@@ -36,7 +36,10 @@
       <field name="arch" type="xml">
         <form>
           <header>
-             <field name="state" widget="statusbar"
+            <button string="Start working on issue" type="object" name="onit_progressbar" attrs="{'invisible': ['|',('state','=','draft'),'|',('state','=','onit'),'|',('state','=','implemented'),'|',('state','=','rejected')]}"/>
+            <button string="Implement Issue" type="object" name="implement_progressbar" attrs="{'invisible': ['|',('state','=','draft'),'|',('state','=','implemented')]}"/>
+            <button string="Reject Issue" type="object" name="reject_progressbar" attrs="{'invisible': ['|',('state','=','draft'),'|',('state','=','rejected')]}"/>
+            <field name="state" widget="statusbar"
             statusbar_visible="draft,proposed,onit" />
           </header>
           <sheet>
@@ -61,6 +64,7 @@
               </group>
             </group>
             <group>
+              <field name="desc" />
               <field name="int_notes" />
             </group>
           </sheet>
