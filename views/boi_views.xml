@@ -58,14 +58,14 @@
               </group>
               <group>
                 <p>Legend: O = no severnity, !!!! = high severnity (needs attention within 3 months)</p>
-                <field name="owners" widget="many2many_tags"/>
-                <field name="resp_date" />               
-                <field name="resp" />
+                <field name="owners" widget="many2many_tags" groups="board_of_ideas.board_admins"/>
+                <field name="resp_date" groups="board_of_ideas.board_admins"/>               
+                <field name="resp" groups="board_of_ideas.board_admins"/>
               </group>
             </group>
             <group>
               <field name="desc" />
-              <field name="int_notes" />
+              <field name="int_notes" groups="board_of_ideas.board_admins"/>
             </group>
           </sheet>
           <div class="oe_chatter">
