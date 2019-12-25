@@ -59,14 +59,14 @@
               <group>
                 <p>Legend: O = no severnity, !!!! = high severnity (needs attention within 3 months)</p>
                 <field name="ba_check" widget="boolean"/>
-                <field name="owners" widget="many2many_tags" attrs="{'readonly':[('ba_check','=', False)]}"/>
-                <field name="resp_date" attrs="{'readonly':[('ba_check','=', False)]}"/>               
-                <field name="resp" attrs="{'readonly':[('ba_check','=', False)]}"/>
+                <field name="owners" widget="many2many_tags" attrs="{'readonly':[('ba_check','=','True')]}"/>
+                <field name="resp_date"  attrs="{'readonly':[('ba_check','=','True')]}"/>               
+                <field name="resp"  attrs="{'readonly':[('ba_check','=','True')]}"/>
               </group>
             </group>
             <group>
               <field name="desc" />
-              <field name="int_notes" attrs="{'readonly':[('ba_check','=', False)]}"/>
+              <field name="int_notes"  attrs="{'readonly':[('ba_check','=','True')]}"/>
             </group>
           </sheet>
           <div class="oe_chatter">
