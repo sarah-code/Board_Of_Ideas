@@ -20,6 +20,7 @@ class board_of_ideas(models.Model):
     int_notes = fields.Html(string="Internal Notes")
     desc = fields.Html(string="Detailed description")
 
+    ba_check = fields.Boolean(string="Board admin check", compute="check_if_ba")
     @api.onchange('sev')
     def severnity_warning(self):
         for rec in self:
@@ -63,3 +64,6 @@ class board_of_ideas(models.Model):
             rec.write({
                 'state': 'rejected'
                 })
+    
+    def check_if_ba(self):
+        return self.env['res.groups'].search([('name','=','board_admins')])
