@@ -21,6 +21,10 @@ class board_of_ideas(models.Model):
     desc = fields.Html(string="Detailed description")
 
     ba_check = fields.Boolean(string="Board admin check", compute="check_if_not_ba", store="True")
+    
+    # _sql_constraints=[('issue_uniq','UNIQUE(idea)','An issue by that description already exist')]
+    _sql_constraints = [('idea_uniq', 'UNIQUE(idea)', 'An issue with that description already exist.')]    
+    
     @api.onchange('sev')
     def severnity_warning(self):
         for rec in self:
