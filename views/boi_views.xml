@@ -7,7 +7,7 @@
       <field name="view_mode">tree,form</field>
 
     </record>
-    <menuitem name="The Board of Ideas" id="boi_base_menu"/>
+    <menuitem name="The Board of Ideas" id="boi_base_menu" web_icon="board_of_ideas,static/description/icon.png"/>
     <menuitem name="Ideas" id="boi_menu" parent="boi_base_menu" action="board_of_ideas_action"/>
 
 
@@ -59,14 +59,14 @@
               <group>
                 <p>Legend: O = no severnity, !!!! = high severnity (needs attention within 3 months)</p>
                 <field name="ba_check" widget="boolean"/>
-                <field name="owners" widget="many2many_tags" groups="board_of_ideas.board_admins" read="base.group_user" />
-                <field name="resp_date"  attrs="{'readonly':[('ba_check','=','True')]}"/>               
-                <field name="resp"  attrs="{'readonly':[('ba_check','=','True')]}"/>
+                <field name="owners" widget="many2many_tags" attrs="{'readonly':[('ba_check','=','False')]}" />
+                <field name="resp_date"  attrs="{'readonly':[('ba_check','=','False')]}"/>               
+                <field name="resp"  attrs="{'readonly':[('ba_check','=','False')]}"/>
               </group>
             </group>
             <group>
               <field name="desc" />
-              <field name="int_notes"  attrs="{'readonly':[('ba_check','=','True')]}"/>
+              <field name="int_notes"  attrs="{'readonly':[('ba_check','=','False')]}"/>
             </group>
           </sheet>
           <div class="oe_chatter">

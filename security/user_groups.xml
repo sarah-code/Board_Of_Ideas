@@ -1,17 +1,23 @@
 <odoo>
     <data>
 
-        <record model="ir.module.category" id="board_of_ideas">
+        <!-- <record model="ir.module.category" id="board_of_ideas">
             <field name="name">Board Administration</field> 
             <field name="sequence">7</field>
+        </record> -->
+
+        <record id="board_users" model="res.groups">
+        <field name="name">Board Users</field>
+        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="category_id" ref="board_of_ideas"/>
         </record>
 
         <record id="board_admins" model="res.groups">
         <field name="name">Board Admins</field>
-        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        <field name="implied_ids" eval="[(4, ref('board_of_ideas.board_users'))]"/>
         <field name="category_id" ref="board_of_ideas"/>
         </record>
-        
         
     </data>
 </odoo>

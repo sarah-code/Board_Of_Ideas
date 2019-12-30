@@ -9,7 +9,7 @@ class board_of_ideas(models.Model):
 
     sev = fields.Selection(string="Severnity", selection=[('0','O'),('1','!'),('2','!!'),('3','!!!'),('4','!!!!')], default="0", help='How to rate severnity?\n o means no immediate attention needed.\n ! means attention needed in a year.\n !! means attention needed in 6 months.\n !!! means attention needed in 3 months. \n !!!! means attention highly need in under 3 months.')
     date = fields.Date(string="Date", default=datetime.today())
-    idea = fields.Text(string="Idea/Area of Improvement")
+    idea = fields.Text(string="Idea/Area of Improvement", required="1")
     dep = fields.Text(string="Department")
     login = fields.Many2one(string="Login", comodel_name="res.users", store="True", default=lambda self: self.env.user.id)
 
@@ -70,7 +70,7 @@ class board_of_ideas(models.Model):
                 })
     
     def check_if_not_ba(self):
-        flag = self.env['res.users'].has_group('base.group_user')
+        flag = self.env.user.has_group('board_of_ideas.board_admins')
         print(flag)
         if flag:
             return True
