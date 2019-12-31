@@ -70,9 +70,11 @@ class board_of_ideas(models.Model):
                 })
     
     def check_if_not_ba(self):
-        flag = self.env.user.has_group('board_of_ideas.board_admins')
-        print(flag)
-        if flag:
+        admins = self.env.user.has_group('board_of_ideas.board_admins')
+        users = self.env.user.has_group('board_of_ideas.board_users')
+        print(admins)
+        print(users)
+        if admins:
             return True
-        else:
+        elif users:
             return False
