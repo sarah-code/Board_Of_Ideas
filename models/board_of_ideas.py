@@ -20,7 +20,7 @@ class board_of_ideas(models.Model):
     int_notes = fields.Html(string="Internal Notes")
     desc = fields.Html(string="Detailed description")
 
-    ba_check = fields.Boolean(string="Board admin check", compute="check_if_not_ba", store="True")
+    ba_check = fields.Boolean(string="Board admin check", compute="check_if_not_ba")
     
     # _sql_constraints=[('issue_uniq','UNIQUE(idea)','An issue by that description already exist')]
     _sql_constraints = [('idea_uniq', 'UNIQUE(idea)', 'An issue with that description already exist.')]    
@@ -69,12 +69,14 @@ class board_of_ideas(models.Model):
                 'state': 'rejected'
                 })
     
+    @api.depends('ba_check')
     def check_if_not_ba(self):
-        admins = self.env.user.has_group('board_of_ideas.board_admins')
-        users = self.env.user.has_group('board_of_ideas.board_users')
-        print(admins)
-        print(users)
-        if admins:
-            return True
-        elif users:
-            return False
+        print(self.env.user)
+        if self.env.user.has_group('board_of_ideas.board_admins'):
+            print(self.env.user.has_group('board_of_ideas.board_users'))
+            print(self.env.user.has_group('board_of_ideas.board_admins'))
+            self.ba_check = True
+        else:
+            print(self.env.user.has_group('board_of_ideas.board_users'))
+            print(self.env.user.has_group('board_of_ideas.board_admins'))
+            self.ba_check = False
