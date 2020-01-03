@@ -58,7 +58,7 @@
               </group>
               <group>
                 <p>Legend: O = no severnity, !!!! = high severnity (needs attention within 3 months)</p>
-                <field name="ba_check" invisible="1" widget="boolean" />
+                <field name="ba_check" invisible="1" />
                 <field name="owners" widget="many2many_tags" attrs="{'readonly': [('ba_check', '=', False)]}" /> <!--attrs="{'readonly':[('ba_check','=','False')]}" -->
                 <field name="resp_date"  attrs="{'readonly': [('ba_check', '=', False)]}" />               
                 <field name="resp"  attrs="{'readonly': [('ba_check', '=', False)]}" />

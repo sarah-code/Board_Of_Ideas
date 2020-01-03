@@ -72,11 +72,13 @@ class board_of_ideas(models.Model):
     @api.depends('ba_check')
     def check_if_not_ba(self):
         print(self.env.user)
-        if self.env.user.has_group('board_of_ideas.board_admins'):
+        if self.env.user.has_group('board_of_ideas.board_admins') and self.env.user.has_group('board_of_ideas.board_users'):
             print(self.env.user.has_group('board_of_ideas.board_users'))
             print(self.env.user.has_group('board_of_ideas.board_admins'))
             self.ba_check = True
+            print(True)
         else:
             print(self.env.user.has_group('board_of_ideas.board_users'))
             print(self.env.user.has_group('board_of_ideas.board_admins'))
             self.ba_check = False
+            print(False)
