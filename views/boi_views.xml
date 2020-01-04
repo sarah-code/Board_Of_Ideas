@@ -4,7 +4,7 @@
       <field name="name">Board of Ideas</field>
       <field name="res_model">board.of.ideas</field>
   
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">tree,form,kanban</field>
 
     </record>
     <menuitem name="The Board of Ideas" id="boi_base_menu" web_icon="board_of_ideas,static/description/icon.png"/>
@@ -75,6 +75,39 @@
                 <field name="message_ids" widget="mail_thread"/>
           </div>
         </form>
+      </field>
+    </record>
+
+    <record id="board_of_ideas_view_kanban" model="ir.ui.view">
+      <field name="name">board.of.ideas.view.kanban</field>
+      <field name="model">board.of.ideas</field>
+      <field name="arch" type="xml">
+        <kanban default_order = "state">
+          <field name="title" />
+          <field name="idea" />
+          <field name="login" />
+          <field name="state" />
+          <templates>
+            <t t-name="kanban-box">
+              <div t-attf-class="oe_kanban_global_click">
+                <div class="oe_kanban_details">
+                  <strong>
+                    <field name="title" />
+                  </strong>
+                  <div>
+                    <field name="idea" />
+                  </div>
+                  <div>
+                    <field name="login" />
+                  </div>
+                  <div>
+                    <field name="state" />
+                  </div>
+                </div>
+              </div>
+            </t>
+          </templates>
+        </kanban>
       </field>
     </record>
 
