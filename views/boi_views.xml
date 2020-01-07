@@ -82,7 +82,7 @@
       <field name="name">board.of.ideas.view.kanban</field>
       <field name="model">board.of.ideas</field>
       <field name="arch" type="xml">
-        <kanban default_order = "state">
+        <kanban default_order = "state" class="o_kanban_mobile">
           <field name="title" />
           <field name="idea" />
           <field name="login" />
@@ -91,11 +91,13 @@
             <t t-name="kanban-box">
               <div t-attf-class="oe_kanban_global_click">
                 <div class="oe_kanban_details">
-                  <strong>
-                    <field name="title" />
-                  </strong>
-                  <div>
-                    <field name="idea" />
+                  <div class="o_kanban_record_title">
+                    <small>
+                      [<field name="title" />]
+                    </small>
+                    <strong>
+                      <field name="idea" />
+                    </strong>
                   </div>
                   <div>
                     <field name="login" />
